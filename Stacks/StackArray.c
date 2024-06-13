@@ -38,7 +38,15 @@ bool isFull(StackArrayList s) {
 
 void display(StackArrayList s) {
 	StackArrayList newStack;
-	newStack.top = 0;
+	initStack(&newStack);
+	
+	while(s.top != 0) {
+		printf("%d \n", stack_peek(s));
+		
+		newStack.data[newStack.top++] = stack_peek(s);
+		
+		stack_pop(&s);
+	}
 	
 }
 

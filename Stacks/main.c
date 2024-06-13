@@ -19,5 +19,9 @@ int main(int argc, char *argv[]) {
 	printf("Sample Visualizer: \n");
 	visualize(s);
 	
+	printf("\n\n");
+	printf("Display of stack:\n");
+	 display(s);
+	
 	return 0;
 }
