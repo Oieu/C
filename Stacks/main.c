@@ -8,12 +8,13 @@ int main(int argc, char *argv[]) {
 	
 	StackArrayList s;
 	
-    initStack(&s);
+  initStack(&s);
     
     stack_push(&s, 1);
     stack_push(&s, 2);
     stack_push(&s, 12);
     stack_push(&s, 14);
+    stack_push(&s, 15);
 	
 	printf("Sample Visualizer: \n");
 	visualize(s);
