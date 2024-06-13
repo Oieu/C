@@ -20,8 +20,17 @@ int main(int argc, char *argv[]) {
 	visualize(s);
 	
 	printf("\n\n");
-	printf("Display of stack:\n");
+	printf("Display of Stack:\n");
 	 display(s);
+	 
+	 printf("\n\n");
+	 printf("New stack containing even Numbers:\n");
+	 
+	 StackArrayList newStack;
+	 newStack = evenStack(&s);
+	 
+	 visualize(newStack);
+	
 	
 	return 0;
 }

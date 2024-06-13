@@ -20,12 +20,14 @@ int stack_peek(StackArrayList s);
 bool isEmpty(StackArrayList s);
 bool isFull(StackArrayList s);
 
+StackArrayList evenStack(StackArrayList *s);
+
 void display(StackArrayList s);
 void visualize(StackArrayList s);
 
 
 //others
 //create a function that would get all even numbers and return as a
-//new stock removing from the old stack 
+//new stack removing from the old stack 
 
 #endif

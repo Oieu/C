@@ -27,13 +27,29 @@ int stack_peek(StackArrayList s) {
 	return s.data[s.top-1];
 }
 
-
 bool isEmpty(StackArrayList s) {
 	return s.top == 0;
 }
 
 bool isFull(StackArrayList s) {
 	return s.top == MAX-1; 
+}
+
+StackArrayList evenStack(StackArrayList *s) {
+	StackArrayList evenStack;
+	initStack(&evenStack);
+	
+	
+	while(s->top != 0) {
+		if(stack_peek(*s) % 2 == 0) {
+			evenStack.data[evenStack.top++] = stack_peek(*s);
+			stack_pop(s);
+		}else{
+			stack_pop(s);
+		}
+	}
+	
+	return evenStack;
 }
 
 void display(StackArrayList s) {
