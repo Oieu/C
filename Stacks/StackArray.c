@@ -29,11 +29,11 @@ int stack_peek(StackArrayList s) {
 
 
 bool isEmpty(StackArrayList s) {
-	return s.top = 0;
+	return s.top == 0;
 }
 
 bool isFull(StackArrayList s) {
-	return s.top = MAX; 
+	return s.top == MAX-1; 
 }
 
 void display(StackArrayList s) {
