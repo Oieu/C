@@ -75,3 +75,7 @@ void sampledisplay(QList L) {
 		L.front = L.front->next;
 	}
 }
+
+int isFront(QList L) {
+	return (isEmpty(L)) ? -1 : L.front->data;
+}

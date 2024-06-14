@@ -21,5 +21,5 @@ void dequeue(QList *L);
 bool isEmpty(QList L);
 void displayQueue(QList *L);
 void sampledisplay(QList L);
-
+int isFront(QList L);
 #endif

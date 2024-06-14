@@ -21,6 +21,8 @@ int main(int argc, char *argv[]) {
 	printf("\n\n");
 	printf("Sample Display of Queue: \n");
 	sampledisplay(QL);
-		
+	
+	printf("\n\n");
+	printf("Front Data is %d", isFront(QL));
 	return 0;
 }
