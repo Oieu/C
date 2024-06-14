@@ -68,9 +68,9 @@ void display(StackArrayList s) {
 
 void visualize(StackArrayList s) {
 	int i;
-	
+	printf("%3s Index : Data\n"," ");
 	for(i = 0; i < s.top; i++) {
-		printf("index%d: %d \n", i+1, s.data[i]);
+		printf("%5s %d %2s:%1s %d \n", " ",i+1, " ", " ", s.data[i]);
 	}
 	
 	printf("\n");
