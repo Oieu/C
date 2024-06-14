@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <stdbool.h>
 #include "StackArray.h"
+#include "StackLinkList.h"
 /* run this program using the console pauser or add your own getch, system("pause") or input loop */
 
 int main(int argc, char *argv[]) {
@@ -16,7 +17,7 @@ int main(int argc, char *argv[]) {
     stack_push(&s, 14);
     stack_push(&s, 15);
 	
-	printf("Sample Visualizer: \n");
+	printf("for Stacks Array Implementation: \n");
 	visualize(s);
 	
 	printf("\n\n");
@@ -31,6 +32,31 @@ int main(int argc, char *argv[]) {
 	 
 	 visualize(newStack);
 	
+	printf("\n\nStack Link List Implementation: \n\n");
+	
+	StackLLPtr sll;
+	
+	initStackLL(&sll);
+	
+	stack_pushLL(&sll, 2);
+	stack_pushLL(&sll, 5);
+	stack_pushLL(&sll, 8);
+	stack_pushLL(&sll, 14);
+	
+	printf("Sample Visualizer for Stacks Link List Implementation: \n");
+	visualizestackLL(sll);
+	printf("\n");
+	
+	printf("Current Top of Stack: %d", stack_peekLL(sll));
+	printf("\n\n");
+	
+	stack_popLL(&sll);
+	printf("Sample Visualizer for Stacks Link List Implementation after POP operation: \n");
+	visualizestackLL(sll);
+	printf("\n");
+	
+	printf("Current Top of Stack: %d", stack_peekLL(sll));
+	printf("\n\n");
 	
 	return 0;
 }
