@@ -58,5 +58,12 @@ int main(int argc, char *argv[]) {
 	printf("Current Top of Stack: %d", stack_peekLL(sll));
 	printf("\n\n");
 	
+	printf("Display of Stack Implementation of Lists:\n");
+	displaystackLL(sll);
+	printf("\n");
+	
+	printf("Current Top of Stack: %d", stack_peekLL(sll));
+	printf("\n\n");
+	
 	return 0;
 }

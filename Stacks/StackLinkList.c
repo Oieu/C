@@ -9,6 +9,7 @@ void initStackLL(StackLLPtr *s) {
 }
 
 StackLL createStackLL() {
+	//Not really sure about this sir
 	StackLL *sl;
 	sl = NULL;
 	
@@ -54,12 +55,41 @@ bool isEmptyLL(StackLLPtr s) {
 }
 
 
-StackLL evenStackLL(StackLLPtr *s) {
+StackLLPtr evenStackLL(StackLLPtr *s) {
+	StackLLPtr newStackLL;
+	initStackLL(&newStackLL);
 	
+	while(*s != NULL) {
+		if((*s)->data % 2 == 0) {
+			stack_pushLL(&newStackLL, (*s)->data);	
+			stack_popLL(*s);
+		}
+	}
+	
+	return newStackLL;
 	
 }
 
 void displaystackLL(StackLLPtr s) {
+	
+	StackLLPtr tempStackLL;
+	initStackLL(&tempStackLL);
+		
+		//Displays the values in each stack and pushes them to a temporary stack for retrieval after displaying all values
+		while(s != NULL) {
+			printf("%d \n", s->data);
+			stack_pushLL(&tempStackLL, s->data);
+			stack_popLL(&s);
+		}
+		
+		//Returns back the values in the temporary stack to the original stack after displaying 
+		if(isEmptyLL(s)) {
+			while(tempStackLL != NULL) {
+				stack_pushLL(&s, tempStackLL->data);
+				stack_popLL(&tempStackLL);
+			}	
+			
+		}
 	
 	
 }

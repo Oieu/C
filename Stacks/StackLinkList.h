@@ -19,7 +19,7 @@ int stack_peekLL(StackLLPtr s);
 bool isEmptyLL(StackLLPtr s);
 //bool isFull(StackLLPtr s); Not applicable ?
 
-StackLL evenStackLL(StackLLPtr *s);
+StackLLPtr evenStackLL(StackLLPtr *s);
 
 void displaystackLL(StackLLPtr s);
 void visualizestackLL(StackLLPtr s);
