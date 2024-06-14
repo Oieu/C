@@ -41,6 +41,7 @@ int main(int argc, char *argv[]) {
 	stack_pushLL(&sll, 2);
 	stack_pushLL(&sll, 5);
 	stack_pushLL(&sll, 8);
+	stack_pushLL(&sll, 100);
 	stack_pushLL(&sll, 14);
 	
 	printf("Sample Visualizer for Stacks Link List Implementation: \n");
@@ -64,6 +65,13 @@ int main(int argc, char *argv[]) {
 	
 	printf("Current Top of Stack: %d", stack_peekLL(sll));
 	printf("\n\n");
+	
+	printf("New stack containing even Numbers:\n");
+	StackLLPtr NewStackLL;
+	NewStackLL = evenStackLL(&sll); 
+	visualizestackLL(NewStackLL);
+	
+	
 	
 	return 0;
 }

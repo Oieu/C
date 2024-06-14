@@ -62,8 +62,8 @@ StackLLPtr evenStackLL(StackLLPtr *s) {
 	while(*s != NULL) {
 		if((*s)->data % 2 == 0) {
 			stack_pushLL(&newStackLL, (*s)->data);	
-			stack_popLL(*s);
 		}
+		stack_popLL(s);
 	}
 	
 	return newStackLL;
