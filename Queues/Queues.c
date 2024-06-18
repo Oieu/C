@@ -69,9 +69,11 @@ void displayQueue(QList *L) {
 
 
 void sampledisplay(QList L) {
+	int i = 1;
+	printf("\nIndex | Data\n");
 	while(L.front != L.rear) {
-		printf("%d \n", L.front->data);
-		
+		printf("%2s%d %2s| %2s%d \n"," ",i," ", " ", L.front->data);
+		i++;
 		L.front = L.front->next;
 	}
 }
