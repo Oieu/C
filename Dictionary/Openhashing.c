@@ -26,7 +26,7 @@ typedef struct {
 int hash(char *name);
 void initDictionary(OPdictionary *D);
 void insert(OPdictionary *D, Person p);
-void inserttonewTable(OPdictionary *D, Persons p);
+void resizedHashTable(OPdictionary *D);
 void deleterec(OPdictionary *D, Person p);
 void visualize(OPdictionary D);
 
@@ -47,7 +47,8 @@ int main()
 	insert(&D, Persons[1]);
 	insert(&D, Persons[2]);
 	insert(&D, Persons[3]);
-
+	insert(&D, Persons[3]);
+	insert(&D, Persons[3]);
 	visualize(D);
 	
 	
@@ -90,7 +91,7 @@ void insert(OPdictionary *D, Person p) {
 			D->Dictionary[hashndx] = temp;
 		}		
 	}else{
-		SIZE * 2;
+		resizedHashTable(D);
 	}
 	
 
@@ -112,4 +113,9 @@ void visualize(OPdictionary D) {
 	
 	printf("\nTotal Number of records in the table: %d\n",D.count);
 	
+}
+void resizedHashTable(OPdictionary *D) {
+	SIZE * 2;
+	
+	initDictionary(D);
 }
