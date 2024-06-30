@@ -1,58 +1,10 @@
 #include<stdio.h>
 #include<stdlib.h>
 
-#define EMPTY NULL
-#define DELETED "DELETED"
-#define SIZE 10
-
-typedef struct {
-	char fame[20];
-	char address[20];
-	int index; //for visualization
-	
-}Person;
-
-typedef struct node{
-	Person p;
-	struct node* next;
-}Nodetype, *Nodeptr;
-
-typedef struct {
-	Nodeptr Dictionary[SIZE];
-	int count; //Counts the actual number of records in the dictionary for resizing
-}OPdictionary;
+#include "Hashing.h"
 
 
-int hash(char *name);
-void initDictionary(OPdictionary *D);
-void insert(OPdictionary *D, Person p);
-void resizedHashTable(OPdictionary *D);
-void deleterec(OPdictionary *D, Person p);
-void visualize(OPdictionary D);
 
-int main()
-{
-	OPdictionary D;
-	
-	initDictionary(&D);
-	
-	Person Persons[] = {
-		{"Apple", "Cebu"},
-		{"Orange", "Manila"},
-		{"Lemon", "Car car"},
-		{"Star Fruit", "Carmen"}
-	};
-	
-	insert(&D, Persons[0]);
-	insert(&D, Persons[1]);
-	insert(&D, Persons[2]);
-	insert(&D, Persons[3]);
-	insert(&D, Persons[3]);
-	insert(&D, Persons[3]);
-	visualize(D);
-	
-	
-}
 
 int hash(char *name) {
 	int index = 0,i;
@@ -81,21 +33,23 @@ void insert(OPdictionary *D, Person p) {
 	hashndx = hash(p.fame);
 	p.index = hashndx;
 //	printf("%d",p.index);
+
+	if(D->count == table_threshold) {
+		resizedHashTable(D);
+	}
 	
-	if(D->count != table_threshold) {
+		
 		temp = malloc(sizeof(struct node));
 	
 		if(temp != NULL) {
 			temp->p = p;
 			temp->next = D->Dictionary[hashndx];
 			D->Dictionary[hashndx] = temp;
+			D->count++;
 		}		
-	}else{
-		resizedHashTable(D);
-	}
 	
 
-	D->count++;
+
 }
 
 
@@ -112,10 +66,28 @@ void visualize(OPdictionary D) {
 	}
 	
 	printf("\nTotal Number of records in the table: %d\n",D.count);
-	
+
 }
 void resizedHashTable(OPdictionary *D) {
-	SIZE * 2;
 	
-	initDictionary(D);
+	int i;
+	Nodeptr trav;
+	int newtable_Size = 0;
+	OPdictionary ND;
+	
+	SIZE * 2;
+		
+	initDictionary(&ND);
+	
+	for(i = 0; i < SIZE; i++) {
+		for(trav = D->Dictionary[i]; trav != NULL; trav = trav->next){
+			insert(&ND, trav->p);
+			free(trav);
+		}
+	}
+	
+	*D = ND;
+
 }
+
+

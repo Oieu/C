@@ -75,4 +75,4 @@ void visualize(StackArrayList s) {
 	
 	printf("\n");
 	printf("TOP %d", stack_peek(s));
-}
+}	

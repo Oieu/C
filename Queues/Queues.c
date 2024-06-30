@@ -22,7 +22,8 @@ void enqueue(QList *L, int data) {
 	if(isEmpty(*L)) {
 		L->front = temp;
 		L->rear = temp; 
-	}else {
+	}else{
+
 		temp->next = L->rear;
 		L->rear->next = temp;
 		L->rear = temp;
