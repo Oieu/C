@@ -50,7 +50,7 @@ NodePtr deleteBST(NodePtr *T, char *Name) {
 			*trav = temp->left;
 			free(temp);
 		}else{
-		//case 3 if node has 2 children get the min of the right side of the node to be deleted Note: only gets the leftmost of the right side of the node to be deleted thoooo :>>>>
+		//case 3 if node has 2 children get the min of the right side of the node to be deleted 
 		for(minNode = &(*trav)->right; (*minNode)->left != NULL; minNode = &(*minNode)->left){}
 	   (*trav)->item = (*minNode)->item;
 	   temp = *minNode;
